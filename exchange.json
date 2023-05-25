@@ -1,0 +1,33 @@
+"exchange": [
+  "ErrorC",
+  "BytesC",
+  "Lanes",
+  "Tickers",
+  "Name",
+]
+
+{ // Binance
+  "Exchange": { // client.Exchange
+    "Name": "Binance",
+    "Client": { // client
+      "Connection": {  // connection.ExchangeConnection
+        "ErrorC": "chan error",
+        "BytesC": "chan []byte",
+        "websocketConn": "*websocket.Conn" // gorilla/websocket
+      },
+      "Lanes": {
+        "ignore": {
+          "belongs": "func()", //Lane
+          "C": "chan []byte"
+        },
+        "ticker-dogebtc@bookTicker": {
+          "belongs": "func()", // Lane
+          "C": "chan []byte"
+        }
+      }
+    }
+  },
+  "Tickers": {
+    "ticker-dogebtc@bookTicker": "chan ticker.Ticker"
+  }
+}
